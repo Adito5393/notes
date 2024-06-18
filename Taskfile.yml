@@ -7,8 +7,10 @@ vars:
 
 tasks:
   build:
+    interactive: true
     cmds:
       - npx quartz build --serve
 
   sync:
+    interactive: true
     cmd: npx quartz sync
