@@ -1,0 +1,173 @@
+{
+  "main": {
+    "id": "95dcb506a276a849",
+    "type": "split",
+    "children": [
+      {
+        "id": "9d7a26c0aacd6191",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e6cf34a033fd68d6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Recent new files.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "67969b6d8f9f7e30",
+    "type": "split",
+    "children": [
+      {
+        "id": "803d668ca5e152fb",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5fa85b3503194f89",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "63c8c3acdc299535",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1ee2f3d0d90e78d3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "42111064073789d8",
+    "type": "split",
+    "children": [
+      {
+        "id": "7d73ea9b1a267ef8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ebb6e635fed7de37",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Recent new files.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "15a22fae6fa38288",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Recent new files.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "d4bceac999311248",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "5bdec50520559364",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Recent new files.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "daily-notes:Open today's daily note": false,
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "e6cf34a033fd68d6",
+  "lastOpenFiles": [
+    "index.md",
+    "Recently edited.md",
+    "Recent new files.md",
+    "templates/Recent notes.md",
+    "stats/Recent-notes-dataview.md",
+    "Network VPN route.md",
+    "stats",
+    "Untitled.md",
+    "web_archive/how-to-burn-out-dataview.md",
+    "private/Recently edited.md",
+    "private/Recent new files.md",
+    "Recent new files 1.md",
+    "Recently edited 1.md",
+    "web_archive",
+    "web_archive/how-to-burn-out-dataview-media/cc621e6255749584ae21d2675403c8f236dce9a3.svgz",
+    "web_archive/how-to-burn-out-dataview-media/c6bf9baeb78927ac5e0c3e436930cb4a21f30cd0.webp",
+    "web_archive/how-to-burn-out-dataview-media/110a3a2f49d55d13807ef65645f224a0fc0a6af0.webp",
+    "web_archive/how-to-burn-out-dataview-media/553a062a40ff7a0839ef02195d34516ab8833de5.webp",
+    "web_archive/how-to-burn-out-dataview-media/01edc63ccab5185cfd0a0c17c3f2d1f803a30c32.webp",
+    "web_archive/how-to-burn-out-dataview-media/ec885732cad6b50bcb5f8a9d3ce0b0c7e261bacf.webp",
+    "web_archive/how-to-burn-out-dataview-media",
+    "templates"
+  ]
+}

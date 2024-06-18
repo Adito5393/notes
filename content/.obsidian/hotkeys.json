@@ -1,0 +1,10 @@
+{
+  "templater-obsidian:templates/Recent notes.md": [
+    {
+      "modifiers": [
+        "Mod"
+      ],
+      "key": "R"
+    }
+  ]
+}
