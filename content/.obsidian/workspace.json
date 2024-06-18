@@ -13,9 +13,21 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Recent new files.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
+              }
+            }
+          },
+          {
+            "id": "6d15a51b4dfa00b3",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Network VPN route.md",
+                "mode": "source",
+                "source": true
               }
             }
           }
@@ -85,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Recent new files.md",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Recent new files.md",
+                "file": "index.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Recent new files.md"
+                "file": "index.md"
               }
             }
           }
@@ -147,14 +159,16 @@
   },
   "active": "e6cf34a033fd68d6",
   "lastOpenFiles": [
-    "index.md",
+    "Network VPN route.md",
+    "stats/Recent-notes-dataview.md",
+    "awesome idea.md",
+    "templates/New Note.md",
+    "new note to publish.md",
     "Recently edited.md",
     "Recent new files.md",
     "templates/Recent notes.md",
-    "stats/Recent-notes-dataview.md",
-    "Network VPN route.md",
+    "index.md",
     "stats",
-    "Untitled.md",
     "web_archive/how-to-burn-out-dataview.md",
     "private/Recently edited.md",
     "private/Recent new files.md",
