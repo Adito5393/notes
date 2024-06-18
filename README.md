@@ -5,6 +5,8 @@ Build & serve the website locally:
 ```bash
 npm ci
 npx quartz build --serve
+
+npx quartz sync
 ```
 
 ## Obsidian nested vaults
