@@ -25,7 +25,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "templates/Recent notes.md",
+                "file": "Network VPN route.md",
                 "mode": "source",
                 "source": false
               }
@@ -98,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "templates/Recent notes.md",
+                "file": "Network VPN route.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "templates/Recent notes.md",
+                "file": "Network VPN route.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "templates/Recent notes.md"
+                "file": "Network VPN route.md"
               }
             }
           }
@@ -160,15 +160,15 @@
   },
   "active": "6d15a51b4dfa00b3",
   "lastOpenFiles": [
+    "index.md",
+    "Network VPN route.md",
+    "templates/Recent notes.md",
     "Recently edited.md",
     "Recent new files.md",
-    "Network VPN route.md",
-    "index.md",
     "stats/Recent-notes-dataview.md",
     "awesome idea.md",
     "templates/New Note.md",
     "new note to publish.md",
-    "templates/Recent notes.md",
     "stats",
     "web_archive/how-to-burn-out-dataview.md",
     "private/Recently edited.md",
