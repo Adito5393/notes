@@ -1,5 +1,13 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import { QuartzPluginData } from "./quartz/plugins/vfile"
+
+// These 2 files are automatically generated
+const skipSpecificFiles = (f: QuartzPluginData) => {
+  // console.log("QuartzPluginData:", f.filePath);
+  return !(f.filePath?.includes("Recent new files") || f.filePath?.includes("Recently edited"));
+};
+
 
 // components shared across all pages
 export const sharedPageComponents: SharedLayout = {
@@ -26,7 +34,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.Search(),
     Component.Darkmode(),
     Component.DesktopOnly(Component.Explorer()),
-    Component.DesktopOnly(Component.RecentNotes({ limit: 5 })),
+    Component.DesktopOnly(Component.RecentNotes({ limit: 5, filter: skipSpecificFiles })),
   ],
   right: [
     Component.DesktopOnly(Component.Graph()),

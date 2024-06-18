@@ -3,4 +3,4 @@ skip_recent: true
 ---
 | Note                | Added       |
 | ------------------- | ----------- |
-| [[index.md\|index]] | 31 Dec 2023 |
+| [[index.md\|index]] | 18 Jun 2024 |
