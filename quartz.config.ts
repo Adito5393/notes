@@ -11,7 +11,7 @@ const config: QuartzConfig = {
     pageTitle: "Adi's notes",
     enableSPA: true,
     enablePopovers: true,
-    analytics: null,
+    analytics: { provider: 'goatcounter', websiteId: 'adrlzr' },
     baseUrl: "notes.adrlzr.com",
     ignorePatterns: ["web_archive", "templates", ".obsidian"],
     defaultDateType: "created",
@@ -46,6 +46,7 @@ const config: QuartzConfig = {
         },
       },
     },
+    locale: "en-US"
   },
   plugins: {
     transformers: [
