@@ -18,21 +18,8 @@
                 "source": false
               }
             }
-          },
-          {
-            "id": "6d15a51b4dfa00b3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "index.md",
-                "mode": "source",
-                "source": false
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -158,20 +145,20 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "6d15a51b4dfa00b3",
+  "active": "5fa85b3503194f89",
   "lastOpenFiles": [
+    "stats/Recent-notes-dataview.md",
+    "web_archive/how-to-burn-out-dataview.md",
+    "index.md",
     "Recently edited.md",
     "Windows VPN route.md",
-    "index.md",
     "Network VPN route.md",
     "templates/Recent notes.md",
     "Recent new files.md",
-    "stats/Recent-notes-dataview.md",
     "awesome idea.md",
     "templates/New Note.md",
     "new note to publish.md",
     "stats",
-    "web_archive/how-to-burn-out-dataview.md",
     "private/Recently edited.md",
     "private/Recent new files.md",
     "Recent new files 1.md",
