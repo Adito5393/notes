@@ -33,24 +33,30 @@ The plan of the guide (highly inspired by the [ZBM docs](https://docs.zfsbootmen
 
 Future work:
 - Boot into NixOS from the ZFSBootMenu
+
 ## Configure Live Environment
 
 Flash a USB with [Ventoy](https://www.ventoy.net/en/index.html) & add the Debian ISO. Add the following bash script to the `CONFIG` partition:
 
 Add you public key:
 - Create the file:
+
 ```bash
 cd INTO-THE-USB-CONFIG-DIRECTORY
 cat <<EOF > id_ed25519.pub
 ssh-ed25519 AAAAC3N*** YOUR-COMMENT-OR-EMAIL
 EOF
 ```
+
 - Copy the file from your home dir:
+
 ```bash
 cd INTO-THE-USB-CONFIG-DIRECTORY
 cp ~/.ssh/id_ed25519.pub ./ 
 ```
+
 Add the following content into `setup_ssh.sh`:
+
 ```bash
 #!/bin/bash
 __dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -68,9 +74,11 @@ touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys
 
 cat ${__dir}/id_ed25519.pub >> ~/.ssh/authorized_keys
 ```
+
 You can now ssh into your machine.
 
 Useful commands:
+
 ```bash
 # Find the IP and etherface name
 ip a
@@ -79,12 +87,14 @@ dhclient eth0
 ```
 
 ### Source `/etc/os-release`
+
 ```bash
 source /etc/os-release
 export ID
 ```
 
 ### Configure and update APT
+
 ```bash
 apt install lsb-release ca-certificates apt-transport-https
 CODENAME=$(lsb_release --codename --short)
@@ -98,23 +108,28 @@ apt update
 ```
 
 ### Install helpers
+
 ```bash
 apt install debootstrap gdisk dkms linux-headers-$(uname -r)
 apt install zfsutils-linux
 ```
 
-### Generate `/etc/hostid`
+### Generate `/etc/hostid`
 Set a unique ID within the Linux devices you use:
+
 ```bash
 zgenhostid -f 0x00bab10c
 # Generate the ID:
 zgenhostid -f "0x$( date +%s | cut -c1-8 )"
 ```
+
 Useful commands:
+
 ```bash
 # Print the current hostid
 hostid
 ```
+
 ## Define disk variables
 
 The Boot and OS will run from the same devices in a mirror configuration.
@@ -132,6 +147,7 @@ export POOL_DEVICE="${BOOT_DISK}p${POOL_PART}"
 ```
 
 Helpful commands:
+
 ```bash
 lsblk -f
 df -H
@@ -140,45 +156,58 @@ df -H
 ## Disk preparation (4 partitions)
 
 Wipe partitions:
+
 ```bash
 zpool labelclear -f "$BOOT_DISK"
 
 wipefs -a "$BOOT_DISK"
 sgdisk --zap-all "$BOOT_DISK"
 ```
+
 Helpful commands:
+
 ```bash
 # List partition type codes: 
 sgdisk --list-types
 lsblk -o NAME,SIZE,FSTYPE,TYPE
 ```
+
 You will see the code we will later use:
 - `ef00` = EFI System
 - `8309` = Linux LUKS
 - `bf00` = Solaris root
+
 ### EFI boot partition
 Create EFI boot partition:
+
 ```bash
 sgdisk -n "${BOOT_PART}:1m:+1GiB" -t "${BOOT_PART}:ef00" "$BOOT_DISK"
 ```
+
 ### LUKS partition
 Create LUKS2 keys partition:
+
 ```bash
 sgdisk -n "${KEYS_PART}:0:+1GiB" -t "${KEYS_PART}:8309" -c "${KEYS_PART}:KEYSTORE" "$BOOT_DISK"
 ```
-### zpool partition
+
+### Zpool partition
 Create zpool partition:
+
 ```bash
 sgdisk -n "${POOL_PART}:0:-10m" -t "${POOL_PART}:bf00" "$POOL_DISK"
 ```
 
 ## ZFS pool creation
 Everything encrypted & create 1 unencrypted dataset:
+
 ```bash
 echo 'SomeKeyphrase' > /etc/zfs/zroot.key
 chmod 000 /etc/zfs/zroot.key
 ```
+
 Create the pool:
+
 ```bash
 zpool create -f -o ashift=12 \
  -O compression=lz4 \
@@ -208,13 +237,12 @@ zfs create -o mountpoint=/home -o canmount=noauto -o encryption=off zroot/HOME/u
 zpool set bootfs=zroot/ROOT/${ID} zroot
 ```
 
-
 > [!IMPORTANT] Turn off overlay for `zroot/HOME`
 > Turning off [the overlay](https://openzfs.github.io/openzfs-docs/man/master/7/zfsprops.7.html#overlay) for all children datasets will ensure that only 1 dataset is mounted at a time.
 
-
 ### Export, then re-import with a temporary mountpoint of `/mnt`
 Export and import pool:
+
 ```bash
 zpool export zroot
 zpool import -N -R /mnt zroot
@@ -222,12 +250,14 @@ zfs load-key -L prompt zroot
 ```
 
 Mount it:
+
 ```bash
 zfs mount zroot/ROOT/${ID}
 zfs mount zroot/HOME/work
 ```
 
 Verify that everything is mounted correctly:
+
 ```bash
 mount | grep mnt
 
@@ -237,17 +267,20 @@ zroot/HOME/work on /mnt/home type zfs (rw,relatime,xattr,posixacl)
 
 ## Install Debian
 Update device symlinks:
+
 ```bash
 udevadm trigger
 ```
 
 Install Debian via [debootstrap](https://gist.github.com/varqox/42e213b6b2dde2b636ef):
+
 ```bash
 # CODENAME=$(lsb_release --codename --short)
 debootstrap $CODENAME /mnt
 ```
 
 ### Copy files into the new install
+
 ```bash
 cp /etc/hostid /mnt/etc/hostid
 cp /etc/resolv.conf /mnt/etc/
@@ -256,6 +289,7 @@ cp /etc/zfs/zroot.key /mnt/etc/zfs
 ```
 
 ### Chroot into the new OS
+
 ```bash
 mount -t proc proc /mnt/proc
 mount -t sysfs sys /mnt/sys
@@ -267,17 +301,20 @@ chroot /mnt /bin/bash
 ## Basic Debian Configuration
 
 ### Set a hostname
+
 ```bash
 echo 'YOURHOSTNAME' > /etc/hostname
 echo -e '127.0.1.1\tYOURHOSTNAME' >> /etc/hosts
 ```
 
 ### Set a root password & apt sources
+
 ```bash
 passwd
 ```
 
 Configure apt. Use other mirrors if you prefer:
+
 ```bash
 cat <<EOF > /etc/apt/sources.list
 deb http://deb.debian.org/debian bookworm main contrib non-free non-free-firmware
@@ -295,17 +332,20 @@ EOF
 ```
 
 All backports are disabled by default. To use it, run:
+
 ```bash
 apt -t bookworm-backports install PACKAGE
 ```
 
 ### Update & install additional base packages
+
 ```bash
 apt update
 apt install locales keyboard-configuration console-setup bash-completion
 ```
 
 ### Configure packages to customize local and console properties
+
 ```bash
 dpkg-reconfigure locales tzdata keyboard-configuration console-setup
 ```
@@ -316,23 +356,32 @@ For my machine, I choose:
 - font TerminusBold22x11 that has the size 11x22
 
 ## Setup LUKS partition & add unlock via FIDO2 device
+
 ```bash
 apt install cryptsetup
 ```
+
 Format it:
 - if you want to see the progress via pv (`apt install pv`):
+
 ```bash
 pv -tpreb /dev/zero | dd of=/dev/mapper/KEYSTORE bs=1024M
 ```
+
 - without progress:
+
 ```bash
 dd if=/dev/zero of=/dev/mapper/KEYSTORE bs=1024M
 ```
+
 Use EXT4:
+
 ```bash
 mkfs.ext4 /dev/mapper/KEYSTORE
 ```
+
 Mount it:
+
 ```bash
 mkdir -p /etc/zfs/keys
 mount /dev/mapper/KEYSTORE /etc/zfs/keys
