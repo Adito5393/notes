@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "ZBM-luks-fido2.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "index.md",
+                "file": "ZBM-luks-fido2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "index.md",
+                "file": "ZBM-luks-fido2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "index.md"
+                "file": "ZBM-luks-fido2.md"
               }
             }
           }
@@ -145,11 +145,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5fa85b3503194f89",
+  "active": "e6cf34a033fd68d6",
   "lastOpenFiles": [
+    "index.md",
     "stats/Recent-notes-dataview.md",
     "web_archive/how-to-burn-out-dataview.md",
-    "index.md",
     "Recently edited.md",
     "Windows VPN route.md",
     "Network VPN route.md",
